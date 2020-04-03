@@ -1,3 +1,4 @@
+
 let multipleOptionSelect = document.querySelectorAll('select[multiple]');
 if (multipleOptionSelect.length > 0) {
     let multidatai = 1;
@@ -46,13 +47,27 @@ let multiSelectorAutoSuggestInput = document.querySelectorAll('.multiple-selecto
 if (multiSelectorAutoSuggestInput.length > 0) {
     multiSelectorAutoSuggestInput.forEach(autoSuggestInput => {
         autoSuggestInput.addEventListener('keyup', function (e) {
-            console.log(this.value.match(/[,\/]/g))
+            // console.log(this.value.match(/[,\/]/g))
             if (this.value.match(/[,]/g)) {
                 let thisCommaCleanedValue = this.value.replace(/[,]/g, '');
                 let multipleSelectorOptionElementAutoSuggestSpan = document.createElement('span');
                 multipleSelectorOptionElementAutoSuggestSpan.classList.add('multiple-selector-option');
                 multipleSelectorOptionElementAutoSuggestSpan.innerHTML = thisCommaCleanedValue;
-                this.parentElement.children[0].appendChild(multipleSelectorOptionElementAutoSuggestSpan);
+
+                let alreadyMultiDataListed = this.previousSibling,
+                    alreadyMultiDataListedArray = [];
+
+                if (alreadyMultiDataListed.children.length > 0) {
+                    for (let k = 0; k < alreadyMultiDataListed.children.length; k++) {
+                        alreadyMultiDataListedArray.push(alreadyMultiDataListed.children[k].textContent);
+                    }
+                } else {
+                    this.parentElement.children[0].appendChild(multipleSelectorOptionElementAutoSuggestSpan);
+                }
+
+                if (!alreadyMultiDataListedArray.includes(thisCommaCleanedValue)) {
+                    this.parentElement.children[0].appendChild(multipleSelectorOptionElementAutoSuggestSpan);
+                }
 
                 let multiDataOptionAddRemover = document.createElement('span');
                 multiDataOptionAddRemover.classList.add('option-data-selected-remover');
@@ -61,8 +76,7 @@ if (multiSelectorAutoSuggestInput.length > 0) {
                 this.value = "";
 
 
-
-                console.log(this.parentNode.parentNode.previousSibling);
+                // console.log(this.parentNode.parentNode.previousSibling);
                 let multipleOptionSelectCollection = this.parentNode.parentNode.previousSibling;
                 for (let j = 0; j < multipleOptionSelectCollection.children.length; j++) {
                     if (multipleOptionSelectCollection.children[j].textContent == thisCommaCleanedValue) {
@@ -92,7 +106,7 @@ if (multiSelectorAutoSuggestInput.length > 0) {
                 let checkAllMultiData = document.querySelectorAll('select[multiple]');
                 if (checkAllMultiData.length > 0) {
                     checkAllMultiData.forEach(checkMultiData => {
-                        console.log(getSelectValues(checkMultiData));
+                        // console.log(getSelectValues(checkMultiData));
                     });
                 }
                 /* ends Data Cheking */
