@@ -28,4 +28,7 @@ You just need to simple select structure with multiple attribute.
     
     <!-- Include Multi Data Selector JavaScript File -->
     <script src="js-multi-data-selector-with-autosuggestdatalist.js" type="text/javascript"></script>
+    
+    
+    Enjoy :)
 
