@@ -1,11 +1,15 @@
 # Multiple Select Box
+
 Version: 1.0.0
+
 Author: Yubaraj Rai
 
 Pure JavaScript based
+
 No jQuery required!
 
 Multi Data Selector
+
 Making simple uses of Form data select box for you
 
 # Uses
