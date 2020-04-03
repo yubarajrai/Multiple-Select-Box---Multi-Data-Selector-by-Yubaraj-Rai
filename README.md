@@ -1,12 +1,13 @@
 # Multiple Select Box
 
-Version: 1.0.0
+- Version: 1.0.0
+- Author: Yubaraj Rai
 
-Author: Yubaraj Rai
-
-Pure JavaScript based
-
-No jQuery required!
+# Features
+- Pure JavaScript based
+- Auto Suggestion Datalist enabled
+- No jQuery required!
+- Easy readable Script
 
 Multi Data Selector
 
